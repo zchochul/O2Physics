@@ -56,7 +56,6 @@ using FemtoWorldParticlesMerged = aod::FemtoWorldParticles;
 using FemtoWorldParticleMerged = FemtoWorldParticlesMerged::iterator;
 } // namespace o2::aod
 
-
 struct femtoWorldPairTaskTrackTrack {
 
   /// Particle selection part
@@ -84,8 +83,8 @@ struct femtoWorldPairTaskTrackTrack {
 
   /// Partition for particle 2
   Partition<aod::FemtoWorldParticlesMerged> partsTwo = (aod::femtoworldparticle::partType == uint8_t(aod::femtoworldparticle::ParticleType::kTrack)) &&
-                                                 //  (aod::femtoworldparticle::pt < cfgCutTable->get("PartTwo", "MaxPt")) &&
-                                                 ((aod::femtoworldparticle::cut & ConfCutPartTwo) == ConfCutPartTwo);
+                                                       //  (aod::femtoworldparticle::pt < cfgCutTable->get("PartTwo", "MaxPt")) &&
+                                                       ((aod::femtoworldparticle::cut & ConfCutPartTwo) == ConfCutPartTwo);
 
   /// Histogramming for particle 2
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 2> trackHistoPartTwo;

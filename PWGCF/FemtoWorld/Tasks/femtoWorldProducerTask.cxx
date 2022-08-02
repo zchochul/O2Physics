@@ -294,35 +294,35 @@ struct femtoWorldProducerTask {
                   cutContainer.at(femtoWorldTrackSelection::TrackContainerPosition::kPID),
                   track.dcaXY(),
                   childIDs, 0, 0, //początek nowej części
-                        track.sign(), 
-                         (uint8_t)track.tpcNClsFound(),
-                         track.tpcNClsFindable(),
-                         (uint8_t)track.tpcNClsCrossedRows(),
-                         track.tpcNClsShared(),
-                         track.tpcInnerParam(),
-                         track.itsNCls(),
-                         track.itsNClsInnerBarrel(),
-                         track.dcaXY(),
-                         track.dcaZ(),
-                         track.tpcSignal(),
-                         track.tpcNSigmaStoreEl(),
-                         track.tpcNSigmaStorePi(),
-                         track.tpcNSigmaStoreKa(),
-                         track.tpcNSigmaStorePr(),
-                         track.tpcNSigmaStoreDe(),
-                         track.tofNSigmaStoreEl(),
-                         track.tofNSigmaStorePi(),
-                         track.tofNSigmaStoreKa(),
-                         track.tofNSigmaStorePr(),
-                         track.tofNSigmaStoreDe(),
-                         -999.,
-                         -999.,
-                         -999.,
-                         -999.,
-                         -999.,
-                         -999.);         
+                  track.sign(),
+                  (uint8_t)track.tpcNClsFound(),
+                  track.tpcNClsFindable(),
+                  (uint8_t)track.tpcNClsCrossedRows(),
+                  track.tpcNClsShared(),
+                  track.tpcInnerParam(),
+                  track.itsNCls(),
+                  track.itsNClsInnerBarrel(),
+                  track.dcaXY(),
+                  track.dcaZ(),
+                  track.tpcSignal(),
+                  track.tpcNSigmaStoreEl(),
+                  track.tpcNSigmaStorePi(),
+                  track.tpcNSigmaStoreKa(),
+                  track.tpcNSigmaStorePr(),
+                  track.tpcNSigmaStoreDe(),
+                  track.tofNSigmaStoreEl(),
+                  track.tofNSigmaStorePi(),
+                  track.tofNSigmaStoreKa(),
+                  track.tofNSigmaStorePr(),
+                  track.tofNSigmaStoreDe(),
+                  -999.,
+                  -999.,
+                  -999.,
+                  -999.,
+                  -999.,
+                  -999.);
       tmpIDtrack.push_back(track.globalIndex());
-    /*if (ConfDebugOutput) {
+      /*if (ConfDebugOutput) {
         outputDebugParts(track.sign(),
                          (uint8_t)track.tpcNClsFound(),
                          track.tpcNClsFindable(),
@@ -352,7 +352,7 @@ struct femtoWorldProducerTask {
                          -999.);
       }*/
     }
-/*
+    /*
     if (ConfStoreV0) {
       for (auto& v0 : fullV0s) {
         auto postrack = v0.posTrack_as<aod::FemtoFullTracks>();
