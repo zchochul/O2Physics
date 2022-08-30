@@ -23,7 +23,7 @@
 =======
 #include "PWGCF/DataModel/FemtoWorldDerived.h"
 >>>>>>> FemtoWorld changes to the data structure, producer and track-track task
-#include "Common/DataModel/TrackSelectionTables.h"
+  #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
@@ -33,7 +33,7 @@
 #include <cmath>
 #include <iostream>
 
-using namespace o2::framework;
+  using namespace o2::framework;
 
 namespace o2::analysis::femtoWorld
 {

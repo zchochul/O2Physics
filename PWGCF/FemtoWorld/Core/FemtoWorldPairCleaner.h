@@ -22,9 +22,9 @@
 =======
 #include "PWGCF/DataModel/FemtoWorldDerived.h"
 >>>>>>> FemtoWorld changes to the data structure, producer and track-track task
-#include "Framework/HistogramRegistry.h"
+  #include "Framework/HistogramRegistry.h"
 
-using namespace o2::framework;
+  using namespace o2::framework;
 
 namespace o2::analysis::femtoWorld
 {

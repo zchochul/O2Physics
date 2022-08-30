@@ -20,13 +20,13 @@
 =======
 #include "PWGCF/DataModel/FemtoWorldDerived.h"
 >>>>>>> FemtoWorld changes to the data structure, producer and track-track task
-#include "Common/Core/EventMixing.h"
+  #include "Common/Core/EventMixing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/ASoAHelpers.h"
 
-using namespace o2;
+  using namespace o2;
 using namespace o2::framework;
 
 struct femtoWorldPairHashTask {

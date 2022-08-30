@@ -26,14 +26,14 @@
 =======
 #include "PWGCF/DataModel/FemtoWorldDerived.h"
 >>>>>>> FemtoWorld changes to the data structure, producer and track-track task
-#include "PWGCF/FemtoWorld/Core/FemtoWorldParticleHisto.h"
+  #include "PWGCF/FemtoWorld/Core/FemtoWorldParticleHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldEventHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldPairCleaner.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldContainer.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldDetaDphiStar.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldUtils.h"
 
-using namespace o2;
+  using namespace o2;
 using namespace o2::analysis::femtoWorld;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
@@ -44,12 +44,11 @@ namespace o2::aod
 <<<<<<< HEAD
 // using FemtoWorldParticlesMerged = soa::Join<aod::FemtoWorldParticles,aod::FemtoWorldDebugParticles>;
 =======
-//using FemtoWorldParticlesMerged = soa::Join<aod::FemtoWorldParticles,aod::FemtoWorldDebugParticles>;
+// using FemtoWorldParticlesMerged = soa::Join<aod::FemtoWorldParticles,aod::FemtoWorldDebugParticles>;
 >>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 using FemtoWorldParticlesMerged = aod::FemtoWorldParticles;
 using FemtoWorldParticleMerged = FemtoWorldParticlesMerged::iterator;
 } // namespace o2::aod
-
 
 struct femtoWorldPairTaskTrackTrack {
 
@@ -159,8 +158,8 @@ struct femtoWorldPairTaskTrackTrack {
 
   /// Partition for particle 2
   Partition<aod::FemtoWorldParticlesMerged> partsTwo = (aod::femtoworldparticle::partType == uint8_t(aod::femtoworldparticle::ParticleType::kTrack)) &&
-                                                 //  (aod::femtoworldparticle::pt < cfgCutTable->get("PartTwo", "MaxPt")) &&
-                                                 ((aod::femtoworldparticle::cut & ConfCutPartTwo) == ConfCutPartTwo);
+                                                       //  (aod::femtoworldparticle::pt < cfgCutTable->get("PartTwo", "MaxPt")) &&
+                                                       ((aod::femtoworldparticle::cut & ConfCutPartTwo) == ConfCutPartTwo);
 
   /// Histogramming for particle 2
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 2> trackHistoPartTwo;
