@@ -19,7 +19,11 @@
 #define FEMTOWORLD_UTILS_H_
 
 #include "Framework/ASoAHelpers.h"
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include <CCDB/BasicCCDBManager.h>
 
 #include <vector>

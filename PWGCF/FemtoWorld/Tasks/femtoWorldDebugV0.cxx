@@ -21,7 +21,11 @@
 #include "Framework/StepTHn.h"
 #include "DataFormatsParameters/GRPObject.h"
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include "PWGCF/FemtoWorld/Core/FemtoWorldParticleHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldEventHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldUtils.h"

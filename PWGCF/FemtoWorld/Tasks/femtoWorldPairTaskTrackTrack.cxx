@@ -21,7 +21,11 @@
 #include "Framework/RunningWorkflowInfo.h"
 #include "Framework/StepTHn.h"
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include "PWGCF/FemtoWorld/Core/FemtoWorldParticleHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldEventHisto.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldPairCleaner.h"
@@ -37,15 +41,21 @@ using namespace o2::soa;
 
 namespace o2::aod
 {
+<<<<<<< HEAD
 // using FemtoWorldParticlesMerged = soa::Join<aod::FemtoWorldParticles,aod::FemtoWorldDebugParticles>;
+=======
+//using FemtoWorldParticlesMerged = soa::Join<aod::FemtoWorldParticles,aod::FemtoWorldDebugParticles>;
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 using FemtoWorldParticlesMerged = aod::FemtoWorldParticles;
 using FemtoWorldParticleMerged = FemtoWorldParticlesMerged::iterator;
 } // namespace o2::aod
+
 
 struct femtoWorldPairTaskTrackTrack {
 
   /// Particle selection part
 
+<<<<<<< HEAD
   // Configurables for cuts
   // First particle
   Configurable<float> cfgPtLowPart1{"cfgPtLowPart1", 0.14, "Lower limit for Pt for the first particle"};
@@ -97,9 +107,26 @@ struct femtoWorldPairTaskTrackTrack {
   /// Histogramming for particle 1
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 1> trackHistoPartOne;
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 2> trackHistoPartOneFailed;
+=======
+  /// Table for both particles
+  Configurable<LabeledArray<float>> cfgCutTable{"cfgCutTable", {cutsTable[0], nPart, nCuts, partNames, cutNames}, "Particle selections"};
+  Configurable<int> cfgNspecies{"ccfgNspecies", 4, "Number of particle spieces with PID info"};
+
+  /// Particle 1
+  Configurable<int> ConfPDGCodePartOne{"ConfPDGCodePartOne", 2212, "Particle 1 - PDG code"};
+  Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", 5542474, "Particle 1 - Selection bit from cutCulator"};
+  Configurable<std::vector<int>> ConfPIDPartOne{"ConfPIDPartOne", std::vector<int>{2}, "Particle 1 - Read from cutCulator"}; // we also need the possibility to specify whether the bit is true/false ->std>>vector<std::pair<int, int>>int>>
+
+  /// Partition for particle 1
+  Partition<aod::FemtoWorldParticlesMerged> partsOne = (aod::femtoworldparticle::partType == uint8_t(aod::femtoworldparticle::ParticleType::kTrack)) && ((aod::femtoworldparticle::cut & ConfCutPartOne) == ConfCutPartOne);
+
+  /// Histogramming for particle 1
+  FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 1> trackHistoPartOne;
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
   /// Particle 2 K-
   Configurable<bool> ConfIsSame{"ConfIsSame", false, "Pairs of the same particle"};
+<<<<<<< HEAD
   Configurable<int> ConfPDGCodePartTwo{"ConfPDGCodePartTwo", 321, "Particle 2 - PDG code"};
   Configurable<std::vector<int>> ConfPIDPartTwo{"ConfPIDPartTwo", std::vector<int>{2}, "Particle 2 - Read from json file"}; // we also need the possibility to specify whether the bit is true/false ->std>>vector<std::pair<int, int>>
 
@@ -125,6 +152,19 @@ struct femtoWorldPairTaskTrackTrack {
   /// Histogramming for particle 2
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 3> trackHistoPartTwo;
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 4> trackHistoPartTwoFailed;
+=======
+  Configurable<int> ConfPDGCodePartTwo{"ConfPDGCodePartTwo", 2212, "Particle 2 - PDG code"};
+  Configurable<uint32_t> ConfCutPartTwo{"ConfCutPartTwo", 5542474, "Particle 2 - Selection bit"};
+  Configurable<std::vector<int>> ConfPIDPartTwo{"ConfPIDPartTwo", std::vector<int>{2}, "Particle 2 - Read from cutCulator"}; // we also need the possibility to specify whether the bit is true/false ->std>>vector<std::pair<int, int>>
+
+  /// Partition for particle 2
+  Partition<aod::FemtoWorldParticlesMerged> partsTwo = (aod::femtoworldparticle::partType == uint8_t(aod::femtoworldparticle::ParticleType::kTrack)) &&
+                                                 //  (aod::femtoworldparticle::pt < cfgCutTable->get("PartTwo", "MaxPt")) &&
+                                                 ((aod::femtoworldparticle::cut & ConfCutPartTwo) == ConfCutPartTwo);
+
+  /// Histogramming for particle 2
+  FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kTrack, 2> trackHistoPartTwo;
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
   /// Histogramming for Event
   FemtoWorldEventHisto eventHisto;
@@ -145,9 +185,6 @@ struct femtoWorldPairTaskTrackTrack {
   Configurable<int> ConfNEventsMix{"ConfNEventsMix", 5, "Number of events for mixing"};
   Configurable<bool> ConfIsCPR{"ConfIsCPR", true, "Close Pair Rejection"};
   Configurable<bool> ConfCPRPlotPerRadii{"ConfCPRPlotPerRadii", false, "Plot CPR per radii"};
-  Configurable<int> ConfPhiBins{"ConfPhiBins", 15, "Number of phi bins in deta dphi"};
-  Configurable<int> ConfEtaBins{"ConfEtaBins", 15, "Number of eta bins in deta dphi"};
-  Configurable<int> ConfMInvBins{"ConfMInvBins", 1000, "Number of bins in mInv distribution"};
 
   FemtoWorldContainer<femtoWorldContainer::EventType::same, femtoWorldContainer::Observable::kstar> sameEventCont;
   FemtoWorldContainer<femtoWorldContainer::EventType::mixed, femtoWorldContainer::Observable::kstar> mixedEventCont;
@@ -172,9 +209,13 @@ struct femtoWorldPairTaskTrackTrack {
     MixQaRegistry.add("MixingQA/hSECollisionBins", ";bin;Entries", kTH1F, {{120, -0.5, 119.5}});
     MixQaRegistry.add("MixingQA/hMECollisionBins", ";bin;Entries", kTH1F, {{120, -0.5, 119.5}});
 
+<<<<<<< HEAD
     sameEventCont.init(&resultRegistry, CfgkstarBins, CfgMultBins, CfgkTBins, CfgmTBins, ConfPhiBins, ConfEtaBins, ConfMInvBins);
+=======
+    sameEventCont.init(&resultRegistry, CfgkstarBins, CfgMultBins, CfgkTBins, CfgmTBins);
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
     sameEventCont.setPDGCodes(ConfPDGCodePartOne, ConfPDGCodePartTwo);
-    mixedEventCont.init(&resultRegistry, CfgkstarBins, CfgMultBins, CfgkTBins, CfgmTBins, ConfPhiBins, ConfEtaBins, ConfMInvBins);
+    mixedEventCont.init(&resultRegistry, CfgkstarBins, CfgMultBins, CfgkTBins, CfgmTBins);
     mixedEventCont.setPDGCodes(ConfPDGCodePartOne, ConfPDGCodePartTwo);
     pairCleaner.init(&qaRegistry);
     if (ConfIsCPR) {
@@ -216,6 +257,7 @@ struct femtoWorldPairTaskTrackTrack {
   void processSameEvent(o2::aod::FemtoWorldCollision& col,
                         o2::aod::FemtoWorldParticlesMerged& parts)
   {
+<<<<<<< HEAD
 
     MixQaRegistry.fill(HIST("MixingQA/hSECollisionBins"), colBinning.getBin({col.posZ(), col.multV0M()}));
 
@@ -225,6 +267,14 @@ struct femtoWorldPairTaskTrackTrack {
     auto groupPartsTwo = partsTwo->sliceByCached(aod::femtoworldparticle::femtoWorldCollisionId, col.globalIndex());
     auto groupPartsOneFailed = partsOneFailed->sliceByCached(aod::femtoworldparticle::femtoWorldCollisionId, col.globalIndex());
     auto groupPartsTwoFailed = partsTwoFailed->sliceByCached(aod::femtoworldparticle::femtoWorldCollisionId, col.globalIndex());
+=======
+    MixQaRegistry.fill(HIST("MixingQA/hSECollisionBins"), colBinning.getBin({col.posZ(), col.multV0M()}));
+
+    const auto& magFieldTesla = col.magField();
+
+    auto groupPartsOne = partsOne->sliceByCached(aod::femtoworldparticle::femtoWorldCollisionId, col.globalIndex());
+    auto groupPartsTwo = partsTwo->sliceByCached(aod::femtoworldparticle::femtoWorldCollisionId, col.globalIndex());
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
     const int multCol = col.multV0M();
     eventHisto.fillQA(col);

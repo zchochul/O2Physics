@@ -17,7 +17,11 @@
 #ifndef FEMTOWORLDPAIRCLEANER_H_
 #define FEMTOWORLDPAIRCLEANER_H_
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include "Framework/HistogramRegistry.h"
 
 using namespace o2::framework;

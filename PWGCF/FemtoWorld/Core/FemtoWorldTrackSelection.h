@@ -18,7 +18,11 @@
 #ifndef FEMTOWORLDTRACKSELECTION_H_
 #define FEMTOWORLDTRACKSELECTION_H_
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"

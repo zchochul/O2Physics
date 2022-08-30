@@ -17,11 +17,19 @@
 #ifndef FEMTOWORLDPARTICLEHISTO_H_
 #define FEMTOWORLDPARTICLEHISTO_H_
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 #include "Framework/HistogramRegistry.h"
 
 using namespace o2::framework;
 // using namespace o2::aod::o2::aod;
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+#include "Framework/HistogramRegistry.h"
+
+using namespace o2::framework;
+//using namespace o2::aod::o2::aod;
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
 namespace o2::analysis::femtoWorld
 {
@@ -51,14 +59,20 @@ class FemtoWorldParticleHisto
       mHistogramRegistry->add((folderName + "/hPt").c_str(), "; #it{p}_{T} (GeV/#it{c}); Entries", kTH1F, {{240, 0, 6}});
       mHistogramRegistry->add((folderName + "/hEta").c_str(), "; #eta; Entries", kTH1F, {{200, -1.5, 1.5}});
       mHistogramRegistry->add((folderName + "/hPhi").c_str(), "; #phi; Entries", kTH1F, {{200, 0, 2. * M_PI}});
+<<<<<<< HEAD
       mHistogramRegistry->add((folderName + "/dEdxTPCVsMomentum").c_str(), "; #it{p} (GeV/#it{c}); dE/dx (keV/cm)", kTH2F, {{100, 0., 5.}, {250, 0., 500.}});
       mHistogramRegistry->add((folderName + "/TOFBetaVsMomentum").c_str(), "; #it{p} (GeV/#it{c}); TOF #beta", kTH2F, {{100, 0., 5.}, {250, 0.4, 1.1}});
+=======
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
       /// Particle-type specific histograms
       if constexpr (mParticleType == o2::aod::femtoworldparticle::ParticleType::kTrack) {
         /// Track histograms
         mHistogramRegistry->add((folderName + "/hDCAxy").c_str(), "; #it{p}_{T} (GeV/#it{c}); DCA_{xy} (cm)", kTH2F, {{20, 0.5, 4.05}, {500, -5, 5}});
+<<<<<<< HEAD
         mHistogramRegistry->add((folderName + "/hDCAz").c_str(), "; #it{p}_{T} (GeV/#it{c}); DCA_{z} (cm)", kTH2F, {{20, 0.5, 4.05}, {500, -5, 5}});
+=======
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
       } else if constexpr (mParticleType == o2::aod::femtoworldparticle::ParticleType::kV0) {
         /// V0 histograms
         mHistogramRegistry->add((folderName + "/hCPA").c_str(), "; #it{p}_{T} (GeV/#it{c}); cos#alpha", kTH2F, {{8, 0.3, 4.3}, {1000, 0.9, 1}});
@@ -81,14 +95,22 @@ class FemtoWorldParticleHisto
       mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hPt"), part.pt());
       mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hEta"), part.eta());
       mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hPhi"), part.phi());
+<<<<<<< HEAD
       mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/dEdxTPCVsMomentum"), part.p(), part.tpcSignal());
       mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/TOFBetaVsMomentum"), part.p(), part.beta());
+=======
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 
       /// Particle-type specific histograms
       if constexpr (mParticleType == o2::aod::femtoworldparticle::ParticleType::kTrack) {
         /// Track histograms
+<<<<<<< HEAD
         mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hDCAxy"), part.pt(), part.tempFitVar());
         mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hDCAz"), part.pt(), part.dcaZ());
+=======
+        mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hDCAxy"),
+                                 part.pt(), part.tempFitVar());
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
       } else if constexpr (mParticleType == o2::aod::femtoworldparticle::ParticleType::kV0) {
         /// V0 histograms
         mHistogramRegistry->fill(HIST(o2::aod::femtoworldparticle::ParticleTypeName[mParticleType]) + HIST(mFolderSuffix[mFolderSuffixType]) + HIST("/hCPA"),
@@ -102,10 +124,17 @@ class FemtoWorldParticleHisto
   }
 
  private:
+<<<<<<< HEAD
   HistogramRegistry* mHistogramRegistry;                                                                      ///< For QA output
   static constexpr o2::aod::femtoworldparticle::ParticleType mParticleType = particleType;                    ///< Type of the particle under analysis
   static constexpr int mFolderSuffixType = suffixType;                                                        ///< Counter for the folder suffix specified below
   static constexpr std::string_view mFolderSuffix[5] = {"", "_one", "_one_rejected", "_two", "two_rejected"}; ///< Suffix for the folder name in case of analyses of pairs of the same kind (T-T, V-V, C-C)
+=======
+  HistogramRegistry* mHistogramRegistry;                                                   ///< For QA output
+  static constexpr o2::aod::femtoworldparticle::ParticleType mParticleType = particleType; ///< Type of the particle under analysis
+  static constexpr int mFolderSuffixType = suffixType;                                     ///< Counter for the folder suffix specified below
+  static constexpr std::string_view mFolderSuffix[3] = {"", "_one", "_two"};               ///< Suffix for the folder name in case of analyses of pairs of the same kind (T-T, V-V, C-C)
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 };
 } // namespace o2::analysis::femtoWorld
 

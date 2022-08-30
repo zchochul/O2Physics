@@ -9,6 +9,14 @@
 # granted to it by virtue of its status as an Intergovernmental Organization
 # or submit itself to any jurisdiction.
 
+<<<<<<< HEAD
+=======
+#o2physics_add_executable(femto-world-cutculator
+#          SOURCES femtoWorldCutCulator.cxx
+#          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
+#          COMPONENT_NAME Analysis)
+
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #o2physics_add_dpl_workflow(femto-world-debug-track
 #          SOURCES femtoWorldDebugTrack.cxx
 #          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
@@ -34,3 +42,20 @@ o2physics_add_dpl_workflow(femto-world-pair-track-track
 #          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
 #          COMPONENT_NAME Analysis)
 
+<<<<<<< HEAD
+=======
+#o2physics_add_dpl_workflow(femto-world-producer-reduced
+#          SOURCES femtoWorldProducerReducedTask.cxx
+#          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
+#          COMPONENT_NAME Analysis)
+
+o2physics_add_dpl_workflow(femto-world-producer
+          SOURCES femtoWorldProducerTask.cxx
+          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
+          COMPONENT_NAME Analysis)
+
+#o2physics_add_dpl_workflow(femto-world-producer-v0
+#          SOURCES femtoWorldProducerTaskV0Only.cxx
+#          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
+#          COMPONENT_NAME Analysis)
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task

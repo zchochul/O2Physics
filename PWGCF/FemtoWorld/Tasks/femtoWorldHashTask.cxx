@@ -15,7 +15,11 @@
 /// \author Andi Mathis, TU München, andreas.mathis@ph.tum.de
 /// \author Zuzanna Chochulska, WUT Warsaw, zchochul@cern.ch
 
+<<<<<<< HEAD
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+=======
+#include "PWGCF/DataModel/FemtoWorldDerived.h"
+>>>>>>> FemtoWorld changes to the data structure, producer and track-track task
 #include "Common/Core/EventMixing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisTask.h"
