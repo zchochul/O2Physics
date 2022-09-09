@@ -1222,7 +1222,7 @@ struct femtoWorldProducerTask {
       }
     }
   */}
-    PROCESS_SWITCH(femtoWorldProducerTask, processPhi, "Produce Phi candidates tables", true);
+  PROCESS_SWITCH(femtoWorldProducerTask, processPhi, "Produce Phi candidates tables", true);
 };
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
