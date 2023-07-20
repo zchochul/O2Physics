@@ -93,7 +93,7 @@ struct femtoUniversePairTaskTrackPhi {
   Partition<soa::Join<aod::FDParticles, aod::FDMCLabels>> partsOneMC = (aod::femtouniverseparticle::partType == uint8_t(aod::femtouniverseparticle::ParticleType::kPhi));
 
   /// Histogramming for particle 1
-  FemtoUniverseParticleHisto<aod::femtouniverseparticle::ParticleType::kTrack, 0> trackHistoPartOne;
+  FemtoUniverseParticleHisto<aod::femtouniverseparticle::ParticleType::kPhi, 0> trackHistoPartOne;
 
   /// Particle 2 --- IDENTIFIED HADRON
   Configurable<bool> ConfIsSame{"ConfIsSame", false, "Pairs of the same particle"};
@@ -109,7 +109,7 @@ struct femtoUniversePairTaskTrackPhi {
   Partition<soa::Join<aod::FDParticles, aod::FDMCLabels>> partsTwoMC = (aod::femtouniverseparticle::partType == uint8_t(aod::femtouniverseparticle::ParticleType::kTrack));
 
   /// Histogramming for particle 2
-  FemtoUniverseParticleHisto<aod::femtouniverseparticle::ParticleType::kTrack, 2> trackHistoPartTwo;
+  FemtoUniverseParticleHisto<aod::femtouniverseparticle::ParticleType::kTrack, 0> trackHistoPartTwo;
 
   /// Histogramming for Event
   FemtoUniverseEventHisto eventHisto;

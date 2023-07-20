@@ -122,7 +122,7 @@ class FemtoUniverseParticleHisto
 
     mHistogramRegistry->add((folderName + folderSuffix + "/hPt_ReconNoFake").c_str(), "; #it{p}_{T} (GeV/#it{c}); Entries", kTH1F, {{240, 0, 6}});
 
-    if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kTrack || mParticleType == o2::aod::femtouniverseparticle::ParticleType::kV0Child) {
+    if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kTrack || mParticleType == o2::aod::femtouniverseparticle::ParticleType::kV0Child || mParticleType == o2::aod::femtouniverseparticle::ParticleType::kPhiChild) {
       /// Track histograms
       mHistogramRegistry->add((folderName + folderSuffix + "/hPDG").c_str(), "; PDG; Entries", kTH1I, {{6001, -3000, 3000}});
       mHistogramRegistry->add((folderName + folderSuffix + "/hOrigin_MC").c_str(), "; Origin; Entries", kTH1I, {{7, 0, 7}});
@@ -140,8 +140,13 @@ class FemtoUniverseParticleHisto
     } else if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kCascade) {
       /// Cascade histograms
       /// to be implemented
+    } else if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kPhi) {
+      /// Cascade histograms
+      /// to be implemented
     } else {
-      LOG(fatal) << "FemtoUniverseParticleHisto: Histogramming for requested object not defined - quitting!";
+      // LOGF(info, "particletype =  %s", mParticleType);
+      // LOG(fatal) << "FemtoUniverseParticleHisto: Histogramming for requested object not defined - quitting!";
+      LOGF(fatal, "FemtoUniverseParticleHisto: Histogramming for requested object not defined - quitting! Particle type = %s", mParticleType);
     }
   }
 
@@ -170,6 +175,9 @@ class FemtoUniverseParticleHisto
       } else if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kCascade) {
         /// Cascade histograms
         tempFitVarAxisTitle = "cos#alpha";
+      } else if constexpr (mParticleType == o2::aod::femtouniverseparticle::ParticleType::kPhi) {
+        /// Cascade histograms
+        tempFitVarAxisTitle = "InvMass";
       } else {
         LOG(fatal) << "FemtoUniverseParticleHisto: Histogramming for requested object not defined - quitting!";
       }

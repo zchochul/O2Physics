@@ -668,7 +668,7 @@ struct femtoUniverseProducerTask {
                     aod::femtouniverseparticle::ParticleType::kPhiChild,
                     -999, // cutContainerV0.at(femtoUniverseV0Selection::V0ContainerPosition::kPosCuts),
                     -999, // cutContainerV0.at(femtoUniverseV0Selection::V0ContainerPosition::kPosPID),
-                    0.,
+                    p1.dcaXY(),
                     childIDs,
                     0,
                     0);
@@ -688,7 +688,7 @@ struct femtoUniverseProducerTask {
                     aod::femtouniverseparticle::ParticleType::kPhiChild,
                     -999, // cutContainerV0.at(femtoUniverseV0Selection::V0ContainerPosition::kNegCuts),
                     -999, // cutContainerV0.at(femtoUniverseV0Selection::V0ContainerPosition::kNegPID),
-                    0.,
+                    p2.dcaXY(),
                     childIDs,
                     0,
                     0);
@@ -697,6 +697,7 @@ struct femtoUniverseProducerTask {
           fillMCParticle(p2, o2::aod::femtouniverseparticle::ParticleType::kPhiChild);
         }
         std::vector<int> indexChildID = {rowOfPosTrack, rowOfNegTrack};
+
         outputParts(outputCollision.lastIndex(),
                     phiPt,
                     phiEta,
@@ -704,7 +705,7 @@ struct femtoUniverseProducerTask {
                     aod::femtouniverseparticle::ParticleType::kPhi,
                     -999, // cutContainerV0.at(femtoUniverseV0Selection::V0ContainerPosition::kV0),
                     0,
-                    -999, // v0.v0cosPA(col.posX(), col.posY(), col.posZ()),
+                    phiM, // v0.v0cosPA(col.posX(), col.posY(), col.posZ()),
                     indexChildID,
                     phiM,  // phi.mLambda(), //for now it will have a mLambda getter, maybe we will change it in the future so it's more logical
                     -999); // v0.mAntiLambda()
