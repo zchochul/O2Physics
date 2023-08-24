@@ -39,6 +39,11 @@ o2physics_add_dpl_workflow(femtouniverse-pair-track-phi
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
           COMPONENT_NAME Analysis)
 
+o2physics_add_dpl_workflow(femtouniverse-pair-track-track-mc-truth
+          SOURCES femtoUniversePairTaskTrackTrackMcTruth.cxx
+          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
+          COMPONENT_NAME Analysis)
+
 o2physics_add_dpl_workflow(femtouniverse-debug-v0
           SOURCES femtoUniverseDebugV0.cxx
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
